@@ -4,31 +4,30 @@
 }
 
 /* HEADER */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
 .navbar {
   width: 100%;
   background-color: white;
   border-bottom: 1px solid #eee;
-  /* position: sticky; */
   z-index: 1000;
   top: 0;
 }
 
-.container {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 10px 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 100px;
-}
 
 /* Logo */
 .logo img {
   height: 36px;
   width: auto;
-  /* object-fit: contain; */
   display: block;
 }
 
@@ -230,6 +229,7 @@
 
 .specs-header {
   width: 100%;
+  text-align: center;
 }
 
 .specs-header p {
@@ -364,7 +364,7 @@
 }
 
 .card {
-  width: 32%;
+  flex: 1 1 calc(33.33% - 20px);
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -410,15 +410,6 @@
   padding: 15px;
 }
 
-.arrow {
-  transition: transform 0.3s ease;
-  color: #000;;
-}
-
-.faq-item.active .arrow {
-  transform: rotate(180deg);
-}
-
 .email {
   width: 100%;
   display: flex;
@@ -456,7 +447,7 @@
 }
 
 .arrows{
-  width: 25%;
+  width: 15%;
 }
 
 .arrows button {
@@ -607,25 +598,12 @@
 }
 
 .arrow.left {
-  top: 30%;
   left: 10px;
-  rotate: 180deg;
 }
 
 .arrow.right {
   right: 10px;
 }
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .process-card {
-    flex-direction: column;
-  }
-}
-
-
-
-
 
 
 /* TESTIMONIAL */
@@ -697,17 +675,6 @@ margin: 0;
   margin-right: 10px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .card {
-    min-width: 260px;
-  }
-
-  .arrow {
-    display: none;
-  }
-}
-
 /* PORTIFOLIO */
 .portfolio-container{
   background-color: #f3f3f3;
@@ -725,11 +692,13 @@ margin: 0;
 
 .portifolio-cards {
   display: flex;
+  flex-wrap: wrap;
   gap: 18px;
   margin-bottom: 18px;
 }
 
 .portifolio-card {
+  flex: 1 1 calc(33.33% - 20px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -856,6 +825,7 @@ margin: 0;
 }
 
 .form-content{
+  width: 100%;
   background-color: #242E6F;
   display: flex;
   padding: 50px;
@@ -1001,30 +971,130 @@ margin: 0;
   color: #000;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .footer-container {
-    grid-template-columns: repeat(2, 1fr);
+
+/* ===================== */
+/* TABLET */
+/* ===================== */
+@media (max-width: 1024px) {
+  .container {
+    padding: 10px 40px;
+  }
+
+  .feature-cards .card {
+    width: 48%;
+  }
+
+  .portifolio-cards {
+    flex-wrap: wrap;
+  }
+
+  .portifolio-card {
+    width: 100%;
   }
 }
 
-@media (max-width: 500px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-  }
-}
 
-
-
-
-
-/* RESPONSIVE */
+/* ===================== */
+/* MOBILE */
+/* ===================== */
 @media (max-width: 768px) {
-  .hero {
+
+  /* NAVBAR */
+  .menu {
+    display: none;
+  }
+
+  /* HERO */
+  .hero .container {
     flex-direction: column;
   }
 
-  .features {
-    grid-template-columns: repeat(2, 1fr);
+  .carousel, .hero-content {
+    width: 100%;
   }
+
+  .hero-content h1 {
+    font-size: 22px;
+  }
+
+  /* FEATURES */
+  .card {
+    width: 100%;
+  }
+
+  /* PROCESS */
+  .process-card {
+    flex-direction: column;
+  }
+
+  .image-box img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* FORM */
+  .form-content {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .form-text,
+  .form {
+    width: 100%;
+  }
+
+  /* EMAIL BLOCK */
+  .email {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .email-block input {
+    width: 100%;
+  }
+
+  /* FOOTER */
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-title {
+    flex-direction: column;
+    text-align: center;
+  }
+  .zoom {
+    display: none !important;
+  }
+}
+
+
+/* ===================== */
+/* SMALL MOBILE */
+/* ===================== */
+@media (max-width: 480px) {
+
+  .hero-content h1 {
+    font-size: 18px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-btn {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .companies img {
+    width: 30%;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
